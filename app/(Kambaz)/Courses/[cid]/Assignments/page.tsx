@@ -10,7 +10,7 @@ export default function Assignments({ params: { cid } }: { params: { cid: string
       </div>
 
       <h3 id="wd-assignments-title" style={{ margin: "12px 0" }}>
-        ASSIGNMENTS
+        ASSIGNMENTS FOR COURSE
       </h3>
       <ul id="wd-assignment-list" style={{ listStyle: "none", paddingLeft: 0 }}>
         <li style={{ border: "1px solid #ddd", padding: 12, marginBottom: 8 }}>

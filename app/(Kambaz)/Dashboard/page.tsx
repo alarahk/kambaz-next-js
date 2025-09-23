@@ -31,7 +31,6 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
-      {/* Close the parent div before closing the fragment */}
       </div>
     </>
   );
