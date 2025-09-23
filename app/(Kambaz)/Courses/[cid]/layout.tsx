@@ -6,11 +6,11 @@ type LayoutProps = {
   params: Promise<{ cid: string }>; 
 };
 
-export default async function CoursesLayout({
+export default async function CoursesLayout({ // Make the function async
   children,
   params,
 }: LayoutProps) {
-  const { cid } = await params; 
+  const { cid } = await params; // Await the params to get the value
 
   return (
     <div id="wd-course-shell" style={{ display: "grid", gridTemplateColumns: "220px 1fr 260px", gap: 24 }}>
