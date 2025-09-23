@@ -1,11 +1,13 @@
+import Link from "next/link";
+
 export default function CourseNavigation() {
   return (
     <ul style={{ listStyle: "disc", paddingLeft: 20 }}>
-      <li><a href="/Courses/1234/Home">Course Home</a></li>
-      <li><a href="/Courses/1234/Modules">Modules</a></li>
-      <li><a href="/Courses/1234/Assignments">Assignments</a></li>
-      <li><a href="/Courses/1234/Quizzes">Quizzes</a></li>
-      <li><a href="/Courses/1234/Grades">Grades</a></li>
+      <li><Link href="/Courses/1234/Home">Course Home</Link></li>
+      <li><Link href="/Courses/1234/Modules">Modules</Link></li>
+      <li><Link href="/Courses/1234/Assignments">Assignments</Link></li>
+      <li><Link href="/Courses/1234/Quizzes">Quizzes</Link></li>
+      <li><Link href="/Courses/1234/Grades">Grades</Link></li>
     </ul>
   );
 }
