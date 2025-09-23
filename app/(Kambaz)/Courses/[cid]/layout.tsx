@@ -3,14 +3,14 @@ import CourseNavigation from "./navigation";
 
 type LayoutProps = {
   children: ReactNode;
-  params: { cid: string }; 
+  params: Promise<{ cid: string }>; 
 };
 
-export default function CoursesLayout({
+export default async function CoursesLayout({
   children,
   params,
 }: LayoutProps) {
-  const { cid } = params;
+  const { cid } = await params; 
 
   return (
     <div id="wd-course-shell" style={{ display: "grid", gridTemplateColumns: "220px 1fr 260px", gap: 24 }}>
