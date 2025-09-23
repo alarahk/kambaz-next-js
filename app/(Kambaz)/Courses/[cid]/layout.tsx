@@ -10,7 +10,7 @@ export default function CoursesLayout({
   return (
     <div id="wd-course-shell" style={{ display: "grid", gridTemplateColumns: "220px 1fr 260px", gap: 24 }}>
       <aside id="wd-course-nav" aria-label={`Course ${cid} navigation`}>
-        <CourseNavigation />
+        <CourseNavigation params={{ cid }} />
       </aside>
 
       <main id="wd-course-main" aria-labelledby="wd-course-title">
