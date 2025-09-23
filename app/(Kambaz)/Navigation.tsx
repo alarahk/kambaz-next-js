@@ -1,13 +1,35 @@
 import Link from "next/link";
-export default function KambazNavigation() {
+
+export default function Navigation() {
   return (
-    <div id="wd-kambaz-navigation">
-      <a href="https://www.northeastern.edu/" id="wd-neu-link" target="_blank">Northeastern</a><br/>
-      <Link href="/Account" id="wd-account-link">Account</Link><br/>
-      <Link href="/Dashboard" id="wd-dashboard-link">Dashboard</Link><br/>
-      <Link href="/Dashboard" id="wd-course-link">Courses</Link><br/>
-      <Link href="/Calendar" id="wd-calendar-link">Calendar</Link><br/>
-      <Link href="/Inbox" id="wd-inbox-link">Inbox</Link><br/>
-      <Link href="/Labs" id="wd-labs-link">Labs</Link><br/>
-    </div>
-);}
+    <nav aria-label="Global">
+      <ul id="wd-global-navigation" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        <li>
+          <Link href="/" id="wd-home-link">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link href="/Account" id="wd-account-link">
+            Account
+          </Link>
+        </li>
+        <li>
+          <Link href="/Dashboard" id="wd-dashboard-link">
+            Dashboard
+          </Link>
+        </li>
+        <li>
+          <Link href="/Courses" id="wd-courses-link">
+            Courses
+          </Link>
+        </li>
+        <li>
+          <Link href="/Labs" id="wd-labs-link">
+            Labs
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function SignIn() {
   return (
     <main
@@ -28,8 +29,10 @@ export default function SignIn() {
           </label>
           <input
             type="text"
-            id="username"
+            id="wd-username"
+            name="username"
             placeholder="Enter username"
+            defaultValue="jdoe"
             style={{ padding: "10px", width: "100%" }}
           />
         </div>
@@ -40,15 +43,42 @@ export default function SignIn() {
           </label>
           <input
             type="password"
-            id="password"
+            id="wd-password"
+            name="password"
             placeholder="Enter password"
+            defaultValue="password123"
             style={{ padding: "10px", width: "100%" }}
           />
         </div>
 
         <div style={{ marginTop: "20px" }}>
-          <button style={{ padding: "10px 20px", marginRight: "10px" }}>Sign in</button>
-          <button style={{ padding: "10px 20px" }}>Sign up</button>
+          <Link
+            href="/Dashboard"
+            id="wd-signin-btn"
+            style={{
+              padding: "10px 20px",
+              marginRight: "10px",
+              display: "inline-block",
+              border: "1px solid #ccc",
+              borderRadius: "6px",
+              textDecoration: "none",
+            }}
+          >
+            Sign in
+          </Link>
+          <Link
+            href="/Account/Signup"
+            id="wd-signup-link"
+            style={{
+              padding: "10px 20px",
+              display: "inline-block",
+              border: "1px solid #ccc",
+              borderRadius: "6px",
+              textDecoration: "none",
+            }}
+          >
+            Sign up
+          </Link>
         </div>
       </div>
     </main>

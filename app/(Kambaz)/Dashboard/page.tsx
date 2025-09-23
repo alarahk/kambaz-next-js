@@ -1,9 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Dashboard() {
   return (
-    <div id="wd-dashboard" style={{ marginLeft: "20px" }}>
+    <>
+      <div id="wd-dashboard" style={{ marginLeft: "20px" }}>
       <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
       <h2 id="wd-dashboard-published">Published Courses</h2> <hr />
       <div
@@ -30,6 +31,8 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
-    </div>
+      {/* Close the parent div before closing the fragment */}
+      </div>
+    </>
   );
 }
