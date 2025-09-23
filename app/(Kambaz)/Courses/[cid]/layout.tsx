@@ -3,7 +3,7 @@ import CourseNavigation from "./navigation";
 
 type LayoutProps = {
   children: ReactNode;
-  params: { cid: string }; // Add the missing cid property
+  params: { cid: string }; 
 };
 
 export default function CoursesLayout({

@@ -1,17 +1,13 @@
 import { ReactNode } from "react";
 import Navigation from "./Navigation";
 
-export default function CoursesLayout({
+export default function KambazLayout({
   children,
-  params,
 }: {
   children: ReactNode;
-  params: { cid: string };
 }) {
-  const { cid } = params;
-
   return (
-    <div id="wd-courses">
+    <div id="wd-kambaz">
       <div>
         <table>
           <tbody>
@@ -19,7 +15,7 @@ export default function CoursesLayout({
               <td valign="top" width="200">
                 <Navigation />
               </td>
-                            <td valign="top" style={{ marginLeft: "20px" }}>
+              <td valign="top" style={{ marginLeft: "20px" }}>
                 {children}
               </td>
             </tr>
