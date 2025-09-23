@@ -6,6 +6,14 @@ export default function Lab1() {
        <h1>NAME: ALARA HAKKI , FALL 2025</h1>
 
       <h1>Labs</h1>
+      <nav id="wd-spa-nav">
+        <a href="#wd-h-tag">Headings</a> |
+        <a href="#wd-p-tag">Paragraphs</a> |
+        <a href="#wd-lists">Lists</a> |
+        <a href="#wd-tables">Tables</a> |
+        <a href="#wd-images">Images</a> |
+        <a href="#wd-forms">Forms</a>
+      </nav>
       <h2>Lab 1</h2>
       <h3>HTML Examples</h3>
       <div id="wd-h-tag">
@@ -108,6 +116,54 @@ Your favorite books (in no particular order)
               <td>2/10/21</td>
               <td>90</td>
             </tr>
+            <tr>
+              <td>Q3</td>
+              <td>JavaScript</td>
+              <td>2/17/21</td>
+              <td>92</td>
+            </tr>
+            <tr>
+              <td>Q4</td>
+              <td>React</td>
+              <td>2/24/21</td>
+              <td>88</td>
+            </tr>
+            <tr>
+              <td>Q5</td>
+              <td>Node</td>
+              <td>3/3/21</td>
+              <td>94</td>
+            </tr>
+            <tr>
+              <td>Q6</td>
+              <td>MongoDB</td>
+              <td>3/10/21</td>
+              <td>91</td>
+            </tr>
+            <tr>
+              <td>Q7</td>
+              <td>TypeScript</td>
+              <td>3/17/21</td>
+              <td>89</td>
+            </tr>
+            <tr>
+              <td>Q8</td>
+              <td>Next.js</td>
+              <td>3/24/21</td>
+              <td>93</td>
+            </tr>
+            <tr>
+              <td>Q9</td>
+              <td>APIs</td>
+              <td>3/31/21</td>
+              <td>87</td>
+            </tr>
+            <tr>
+              <td>Q10</td>
+              <td>Security</td>
+              <td>4/7/21</td>
+              <td>95</td>
+            </tr>
           </tbody>
           <tfoot>
             <tr>
@@ -119,14 +175,6 @@ Your favorite books (in no particular order)
       </div>
 
       <div id="wd-images">
-  <img
-    id="wd-starship"
-    src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
-    width={400}
-    height={267}
-    alt="SpaceX Starship on launch pad"
-  />
-  Loading an image from the internet: <br />
   <img
     id="wd-starship"
     src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
@@ -201,6 +249,36 @@ Your favorite books (in no particular order)
 <label htmlFor="wd-radio-scifi">Science Fiction</label><br />
 <input type="radio" name="radio-genre" id="wd-radio-fantasy"/>
 <label htmlFor="wd-radio-fantasy">Fantasy</label>
+
+<h5 id="wd-checkboxes">Checkboxes</h5>
+<label>Favorite movie genres (choose any):</label><br />
+<input type="checkbox" id="wd-chk-comedy" />
+<label htmlFor="wd-chk-comedy">Comedy</label><br />
+<input type="checkbox" id="wd-chk-drama" />
+<label htmlFor="wd-chk-drama">Drama</label><br />
+<input type="checkbox" id="wd-chk-scifi" />
+<label htmlFor="wd-chk-scifi">Science Fiction</label><br />
+<input type="checkbox" id="wd-chk-fantasy" />
+<label htmlFor="wd-chk-fantasy">Fantasy</label>
+
+<h5 id="wd-select-one">Select one option</h5>
+<label htmlFor="wd-select-one-genre">Pick one genre:</label>
+<select id="wd-select-one-genre">
+  <option value="comedy">Comedy</option>
+  <option value="drama">Drama</option>
+  <option value="scifi">Science Fiction</option>
+  <option value="fantasy">Fantasy</option>
+</select>
+
+<h5 id="wd-select-many">Select many options</h5>
+<label htmlFor="wd-select-many-genres">Pick many genres:</label><br />
+<select id="wd-select-many-genres" multiple size={4}>
+  <option value="comedy">Comedy</option>
+  <option value="drama">Drama</option>
+  <option value="scifi">Science Fiction</option>
+  <option value="fantasy">Fantasy</option>
+</select>
+
 <h4>Other HTML field types</h4>
 
 <label htmlFor="wd-text-fields-email"> Email: </label>

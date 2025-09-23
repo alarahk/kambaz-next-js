@@ -1,11 +1,8 @@
-
-
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Kambaz App",
-  description: "Learning Next.js Labs and Kambaz UI",
 };
 
 export default function RootLayout({

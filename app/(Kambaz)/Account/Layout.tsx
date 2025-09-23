@@ -3,19 +3,13 @@ import AccountNavigation from "./Navigation";
 
 export default function AccountLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <div id="wd-kambaz">
-      <table>
-        <tbody>
-          <tr>
-            <td valign="top">
-              <AccountNavigation />
-            </td>
-            <td valign="top" width="100%">
-              {children}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="wd-account" style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: "1rem", padding: "1rem" }}>
+      <aside>
+        <AccountNavigation />
+      </aside>
+      <main>
+        {children}
+      </main>
     </div>
   );
 }
