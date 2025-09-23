@@ -3,17 +3,17 @@ import CourseNavigation from "./navigation";
 
 type LayoutProps = {
   children: ReactNode;
-  params: Promise<{ cid: string }>; 
+  params: { cid: string }; 
 };
 
-export default async function CoursesLayout({ // Make the function async
-  children,
-  params,
-}: LayoutProps) {
-  const { cid } = await params; // Await the params to get the value
+export default function CoursesLayout({ children, params }: LayoutProps) {
+  const { cid } = params; 
 
   return (
-    <div id="wd-course-shell" style={{ display: "grid", gridTemplateColumns: "220px 1fr 260px", gap: 24 }}>
+    <div
+      id="wd-course-shell"
+      style={{ display: "grid", gridTemplateColumns: "220px 1fr 260px", gap: 24 }}
+    >
       <aside id="wd-course-nav" aria-label={`Course ${cid} navigation`}>
         <CourseNavigation />
       </aside>
@@ -27,16 +27,60 @@ export default async function CoursesLayout({ // Make the function async
       <aside id="wd-course-cta" aria-label="Course actions">
         <h3 style={{ margin: 0 }}>Course Status</h3>
         <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 10 }}>
-          <a href="#" className="wd-btn" style={{ padding: 6, fontSize: 14, lineHeight: 1.2, border: "1px solid #888", borderRadius: 4, textAlign: "center" }}>
+          <a
+            href="#"
+            className="wd-btn"
+            style={{
+              padding: 6,
+              fontSize: 14,
+              lineHeight: 1.2,
+              border: "1px solid #888",
+              borderRadius: 4,
+              textAlign: "center",
+            }}
+          >
             Merge
           </a>
-          <a href="#" className="wd-btn" style={{ padding: 6, fontSize: 14, lineHeight: 1.2, border: "1px solid #888", borderRadius: 4, textAlign: "center" }}>
+          <a
+            href="#"
+            className="wd-btn"
+            style={{
+              padding: 6,
+              fontSize: 14,
+              lineHeight: 1.2,
+              border: "1px solid #888",
+              borderRadius: 4,
+              textAlign: "center",
+            }}
+          >
             Merge
           </a>
-          <a href="#" className="wd-btn" style={{ padding: 6, fontSize: 14, lineHeight: 1.2, border: "1px solid #888", borderRadius: 4, textAlign: "center" }}>
+          <a
+            href="#"
+            className="wd-btn"
+            style={{
+              padding: 6,
+              fontSize: 14,
+              lineHeight: 1.2,
+              border: "1px solid #888",
+              borderRadius: 4,
+              textAlign: "center",
+            }}
+          >
             Merge
           </a>
-          <a href="#" className="wd-btn" style={{ padding: 6, fontSize: 14, lineHeight: 1.2, border: "1px solid #888", borderRadius: 4, textAlign: "center" }}>
+          <a
+            href="#"
+            className="wd-btn"
+            style={{
+              padding: 6,
+              fontSize: 14,
+              lineHeight: 1.2,
+              border: "1px solid #888",
+              borderRadius: 4,
+              textAlign: "center",
+            }}
+          >
             Merge
           </a>
         </div>
