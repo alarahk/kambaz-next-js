@@ -4,72 +4,54 @@ export default function SignIn() {
   return (
     <div
       style={{
-        display: "grid",
-        gridTemplateRows: "60px 1fr",
-        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        padding: "24px 16px",
       }}
     >
-      {/* Top Title Bar */}
-      <header
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderBottom: "1px solid #ddd",
-          fontWeight: "bold",
-          fontSize: "1.5rem",
-        }}
-      >
-        Kambaz
-      </header>
-
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "180px 1fr",
-          minHeight: "calc(100vh - 60px)",
+          display: "flex",
+          gap: 24,
+          width: "100%",
+          maxWidth: 900,
         }}
       >
-        {/* Left Sidebar */}
-        <aside
-          style={{
-            padding: "1rem"
-          }}
-        >
+        {/* Small, non-full-height sidebar */}
+        <aside style={{ minWidth: 160, paddingTop: 8 }}>
           <nav>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              <li>
-                <Link href="/Labs">Labs</Link>
-              </li>
-            </ul>
+            <Link
+              href="/Labs"
+              style={{
+                display: "inline-block",
+                padding: "6px 0",
+                textDecoration: "none",
+                color: "#222",
+                fontWeight: 500,
+              }}
+            >
+              Labs
+            </Link>
           </nav>
         </aside>
 
-        {/* Main Sign In Content */}
-        <main
-          id="wd-signin"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "2rem",
-            boxSizing: "border-box",
-          }}
-        >
+        {/* Sign-in card */}
+        <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
           <div
             style={{
-              padding: "32px",
-              maxWidth: "380px",
+              padding: 32,
+              maxWidth: 380,
               width: "100%",
               border: "1px solid #ddd",
-              borderRadius: "8px",
+              borderRadius: 8,
               textAlign: "center",
+              backgroundColor: "#fff",
             }}
           >
-            <h2 style={{ marginBottom: "20px" }}>Sign in</h2>
+            <h2 style={{ marginBottom: 20 }}>Sign in</h2>
 
-            <div style={{ marginBottom: "15px", textAlign: "left" }}>
-              <label htmlFor="username" style={{ display: "block", marginBottom: "6px" }}>
+            <div style={{ marginBottom: 15, textAlign: "left" }}>
+              <label htmlFor="wd-username" style={{ display: "block", marginBottom: 6 }}>
                 Username
               </label>
               <input
@@ -77,12 +59,12 @@ export default function SignIn() {
                 id="wd-username"
                 name="username"
                 placeholder="Enter username"
-                style={{ padding: "10px", width: "100%" }}
+                style={{ padding: 10, width: "100%" }}
               />
             </div>
 
-            <div style={{ marginBottom: "15px", textAlign: "left" }}>
-              <label htmlFor="password" style={{ display: "block", marginBottom: "6px" }}>
+            <div style={{ marginBottom: 15, textAlign: "left" }}>
+              <label htmlFor="wd-password" style={{ display: "block", marginBottom: 6 }}>
                 Password
               </label>
               <input
@@ -90,20 +72,20 @@ export default function SignIn() {
                 id="wd-password"
                 name="password"
                 placeholder="Enter password"
-                style={{ padding: "10px", width: "100%" }}
+                style={{ padding: 10, width: "100%" }}
               />
             </div>
 
-            <div style={{ marginTop: "20px" }}>
+            <div style={{ marginTop: 20 }}>
               <Link
                 href="/Dashboard"
                 id="wd-signin-btn"
                 style={{
                   padding: "10px 20px",
-                  marginRight: "10px",
+                  marginRight: 10,
                   display: "inline-block",
                   border: "1px solid #ccc",
-                  borderRadius: "6px",
+                  borderRadius: 6,
                   textDecoration: "none",
                 }}
               >
@@ -116,7 +98,7 @@ export default function SignIn() {
                   padding: "10px 20px",
                   display: "inline-block",
                   border: "1px solid #ccc",
-                  borderRadius: "6px",
+                  borderRadius: 6,
                   textDecoration: "none",
                 }}
               >
@@ -124,7 +106,7 @@ export default function SignIn() {
               </Link>
             </div>
           </div>
-        </main>
+        </div>
       </div>
     </div>
   );

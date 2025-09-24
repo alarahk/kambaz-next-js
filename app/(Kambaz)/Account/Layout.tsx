@@ -1,15 +1,18 @@
-import { ReactNode } from "react";
-import AccountNavigation from "./Navigation";
-
-export default function AccountLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function AccountLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div id="wd-account" style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: "1rem", padding: "1rem" }}>
-      <aside>
-        <AccountNavigation />
-      </aside>
-      <main>
-        {children}
-      </main>
-    </div>
+    <>
+      <header
+        style={{
+          textAlign: "center",
+          fontSize: 24,
+          fontWeight: 700,
+          padding: "16px 0",
+          borderBottom: "1px solid #eee",
+        }}
+      >
+        Kambaz
+      </header>
+      <div style={{ padding: "0 16px" }}>{children}</div>
+    </>
   );
 }
