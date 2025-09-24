@@ -37,26 +37,19 @@ export default function Modules({ params }: { params: { cid: string } }) {
       <ul id="wd-modules">
         {modules.map((m) => (
           <li key={m.mid} className="wd-module">
-            <div className="wd-title">{m.title}</div>
-            <ul className="wd-lessons">
-              {m.lessons.map((l) => (
-                <li key={l.lid} className="wd-lesson">
-                  <Link href={`/Courses/${cid}/Modules/${m.mid}/Lessons/${l.lid}`}>{l.title}</Link>
-                </li>
-              ))}
-            </ul>
+            <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
+              <div className="wd-title"><strong>{m.title}</strong></div>
+              <ul className="wd-lessons" style={{ marginTop: "8px" }}>
+                {m.lessons.map((l) => (
+                  <li key={l.lid} className="wd-lesson">
+                    <Link href={`/Courses/${cid}/Modules/${m.mid}/Lessons/${l.lid}`}>{l.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </li>
         ))}
       </ul>
-
-      {/* Simple course nav for convenience */}
-      <nav>
-        <Link href={`/Courses/${cid}/Home`}>Home</Link>{" "}|{" "}
-        <Link href={`/Courses/${cid}/Modules`}>Modules</Link>{" "}|{" "}
-        <Link href={`/Courses/${cid}/Assignments`}>Assignments</Link>{" "}|{" "}
-        <Link href={`/Courses/${cid}/Quizzes`}>Quizzes</Link>{" "}|{" "}
-        <Link href={`/Courses/${cid}/Grades`}>Grades</Link>
-      </nav>
     </div>
   );
 }
