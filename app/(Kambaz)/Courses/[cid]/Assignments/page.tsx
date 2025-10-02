@@ -1,118 +1,152 @@
+/**
+ * AssignmentEditorPage
+ * Editor for a single assignment. Includes default values, proper input types,
+ * dropdowns for group/grade/display/submission, online entry checkboxes,
+ * and date fields (Due, Available from, Until) with defaults.
+ */
 import Link from "next/link";
 
-export default function AssignmentsPage({ params }: { params: { cid: string } }) {
-  const { cid } = params;
+export default function AssignmentEditorPage({
+  params,
+}: {
+  params: { cid: string; aid: string };
+}) {
+  const { cid, aid } = params;
+
+  const field = {
+    display: "grid",
+    gap: 6,
+    marginBottom: 14,
+  } as const;
+
+  const input = {
+    padding: "8px 10px",
+    border: "1px solid #cbd5e1",
+    borderRadius: 6,
+  } as const;
+
+  const card = {
+    background: "#fff",
+    border: "1px solid #e5e7eb",
+    borderRadius: 8,
+    padding: 16,
+    boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+  } as const;
 
   return (
-    <main id="wd-assignments">
-      <h2>Assignments</h2>
+    <main id="wd-assignment-editor" style={{ maxWidth: 860, margin: "0 auto", padding: 20 }}>
+      <p style={{ color: "#4b5563", margin: "0 0 12px" }}>
+        Edit details for this assignment. Save to apply changes or Cancel to
+        go back to the assignments list.
+      </p>
 
-      {/* Search + Actions */}
-      <div style={{ marginBottom: "20px" }}>
-        <div style={{ marginBottom: "10px" }}>
-          <input placeholder="Search for Assignments" style={{ marginRight: "8px" }} />
-          <button
-            style={{
-              padding: "6px 14px",
-              marginRight: "8px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              backgroundColor: "transparent",
-              color: "white",
-              cursor: "pointer"
-            }}
-          >
-            + Group
-          </button>
-          <button
-            style={{
-              padding: "6px 14px",
-              marginRight: "8px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              backgroundColor: "transparent",
-              color: "white",
-              cursor: "pointer"
-            }}
-          >
-            + Assignment
-          </button>
-          <button
-            style={{
-              padding: "6px 14px",
-              marginRight: "8px",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              backgroundColor: "transparent",
-              color: "white",
-              cursor: "pointer"
-            }}
-          >
-            Settings
-          </button>
+      <div style={card}>
+        <h2 style={{ marginTop: 0, marginBottom: 16 }}>Edit Assignment</h2>
+
+        {/* Name */}
+        <div style={field}>
+          <label htmlFor="wd-assignment-name"><strong>Assignment Name</strong></label>
+          <input
+            id="wd-assignment-name"
+            type="text"
+            defaultValue={`A${aid} – Example assignment`}
+            style={input}
+          />
         </div>
-      </div>
 
-      {/* Sections */}
-      <h3>Assignments</h3>
-      <ul>
-        <li>
-          <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-            <Link className="wd-assignment-link" href={`/Courses/${cid}/Assignments/123`}>
-              A1 – ENV + HTML
-            </Link>
-            {" "}|{" "}<span>Multiple Modules</span>{" "}|{" "}
-            <span>Not available until May 6 at 12:00am</span>
-            <br />
-            <span>Due: May 13 at 11:59pm</span>{" "}|{" "}<span>100 pts</span>
+        {/* Description */}
+        <div style={field}>
+          <label htmlFor="wd-assignment-description"><strong>Description</strong></label>
+          <textarea
+            id="wd-assignment-description"
+            defaultValue="Provide instructions for the assignment here."
+            rows={4}
+            style={{ ...input, resize: "vertical" }}
+          />
+        </div>
+
+        {/* Points */}
+        <div style={field}>
+          <label htmlFor="wd-assignment-points"><strong>Points</strong></label>
+          <input id="wd-assignment-points" type="number" defaultValue={100} style={input} />
+        </div>
+
+        {/* Group */}
+        <div style={field}>
+          <label htmlFor="wd-assignment-group"><strong>Assignment Group</strong></label>
+          <select id="wd-assignment-group" style={input} defaultValue="ASSIGNMENTS">
+            <option value="ASSIGNMENTS">ASSIGNMENTS</option>
+            <option value="QUIZZES">QUIZZES</option>
+            <option value="EXAMS">EXAMS</option>
+            <option value="PROJECT">PROJECT</option>
+          </select>
+        </div>
+
+        {/* Display Grade as */}
+        <div style={field}>
+          <label htmlFor="wd-display-grade"><strong>Display Grade as</strong></label>
+          <select id="wd-display-grade" style={input} defaultValue="Points">
+            <option>Points</option>
+            <option>Percentage</option>
+            <option>Complete/Incomplete</option>
+            <option>Letter Grade</option>
+          </select>
+        </div>
+
+        {/* Submission Type */}
+        <div style={field}>
+          <label htmlFor="wd-submission-type"><strong>Submission Type</strong></label>
+          <select id="wd-submission-type" style={input} defaultValue="Online">
+            <option>Online</option>
+            <option>On Paper</option>
+            <option>No Submission</option>
+          </select>
+        </div>
+
+        {/* Online Entry Options */}
+        <div style={field}>
+          <span><strong>Online Entry Options</strong></span>
+          <label style={{ display: "flex", gap: 8 }}>
+            <input id="wd-entry-text" type="checkbox" defaultChecked /> Text Entry
+          </label>
+          <label style={{ display: "flex", gap: 8 }}>
+            <input id="wd-entry-url" type="checkbox" /> Website URL
+          </label>
+          <label style={{ display: "flex", gap: 8 }}>
+            <input id="wd-entry-media" type="checkbox" /> Media Recordings
+          </label>
+          <label style={{ display: "flex", gap: 8 }}>
+            <input id="wd-entry-file" type="checkbox" /> File Uploads
+          </label>
+        </div>
+
+        {/* Assign to */}
+        <div style={field}>
+          <label htmlFor="wd-assign-to"><strong>Assign to</strong></label>
+          <input id="wd-assign-to" type="text" defaultValue="Everyone" style={input} />
+        </div>
+
+        {/* Dates */}
+        <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(3, 1fr)" }}>
+          <div style={field}>
+            <label htmlFor="wd-due-date"><strong>Due</strong></label>
+            <input id="wd-due-date" type="date" defaultValue="2025-05-13" style={input} />
           </div>
-        </li>
-        <li>
-          <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-            <Link className="wd-assignment-link" href={`/Courses/${cid}/Assignments/234`}>
-              A2 – CSS + BOOTSTRAP
-            </Link>
-            {" "}|{" "}<span>Multiple Modules</span>{" "}|{" "}
-            <span>Not available until May 13 at 12:00am</span>
-            <br />
-            <span>Due: May 20 at 11:59pm</span>{" "}|{" "}<span>100 pts</span>
+          <div style={field}>
+            <label htmlFor="wd-available-from"><strong>Available from</strong></label>
+            <input id="wd-available-from" type="date" defaultValue="2025-05-06" style={input} />
           </div>
-        </li>
-        <li>
-          <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-            <Link className="wd-assignment-link" href={`/Courses/${cid}/Assignments/345`}>
-              A3 – JavaScript + React
-            </Link>
-            {" "}|{" "}<span>Multiple Modules</span>{" "}|{" "}
-            <span>Not available until May 20 at 12:00am</span>
-            <br />
-            <span>Due: May 27 at 11:59pm</span>{" "}|{" "}<span>100 pts</span>
+          <div style={field}>
+            <label htmlFor="wd-available-until"><strong>Until</strong></label>
+            <input id="wd-available-until" type="date" defaultValue="2025-05-20" style={input} />
           </div>
-        </li>
-      </ul>
+        </div>
 
-      <h3>Quizzes</h3>
-      <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-        Quiz 1 – HTML
-      </div>
-      <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-        Quiz 2 – CSS
-      </div>
-      <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-        Quiz 3 – JavaScript
-      </div>
-
-      <h3>Exams</h3>
-      <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-        Midterm
-      </div>
-      <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-        Final
-      </div>
-
-      <h3>Project</h3>
-      <div style={{ border: "1px solid #ccc", padding: "12px", margin: "8px 0", borderRadius: "6px" }}>
-        Project – Team app
+        {/* Actions */}
+        <div style={{ display: "flex", gap: 10, marginTop: 16 }}>
+          <Link href={`/Courses/${cid}/Assignments`} id="wd-cancel" style={{ ...input, textDecoration: "none", padding: "8px 12px", background: "#f8fafc" }}>Cancel</Link>
+          <button id="wd-save" style={{ ...input, padding: "8px 12px" }}>Save</button>
+        </div>
       </div>
     </main>
   );

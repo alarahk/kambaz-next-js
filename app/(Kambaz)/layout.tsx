@@ -1,25 +1,23 @@
-"use client";
-import { ReactNode } from "react";
-import { usePathname } from "next/navigation";
+/**
+ * KambazLayout
+ * Provides the shell for Kambaz pages: left sidebar navigation + main content.
+ * Renders children in <main>. Navigation is defined in ./Navigation.
+ */
 import Navigation from "./Navigation";
 
-export default function KambazLayout({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
-  const hideNav =
-    pathname === "/Account/Signin" || pathname === "/Account/Signup";
-
-  if (hideNav) {
-    return <>{children}</>;
-  }
-
+export default function KambazLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div
       id="wd-kambaz"
       style={{
         display: "grid",
         gridTemplateColumns: "220px 1fr",
-        gap: "1rem",
-        padding: "1rem",
+        gap: "24px",
+        padding: "16px",
       }}
     >
       <aside>
