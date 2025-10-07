@@ -3,9 +3,6 @@
 
 /* 
    Kambaz - Course Grades Page
-   - Displays grade tables for each course in card layout
-   - Wireframe placeholders (students, assignments, quizzes)
-   - Consistent styling with .card and .btn
 */
 
 export default function GradesPage({
@@ -51,13 +48,13 @@ export default function GradesPage({
 
   return (
     <main id="wd-course-grades" style={wrapper}>
-      {/* Breadcrumb */}
+     
       <nav aria-label="breadcrumb" className="breadcrumbs" style={{ marginBottom: 8 }}>
-        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a href="/Courses">Courses</a>
-        <span aria-hidden>›</span>
-        <span>Course {cid}</span>
-        <span aria-hidden>›</span>
+        <a href="/Dashboard">Dashboard</a>
+        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">›</span>
+        <a href={`/Courses/${cid}/Home`}>Course Homepage</a>
+        <span aria-hidden="true">›</span>
         <span>Grades</span>
       </nav>
 

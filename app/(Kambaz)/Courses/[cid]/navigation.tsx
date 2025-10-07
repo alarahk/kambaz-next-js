@@ -1,49 +1,49 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+'use client'
 
-export default function CourseNavigation({ params }: { params: { cid: string } }) {
-  const { cid } = params;
-  const pathname = usePathname();
+// course nav sidebar
+// highlights current page
 
-  const outerBox: React.CSSProperties = {
-    border: "1px solid #ccc",
-    borderRadius: 6,
-    padding: 12,
-  };
+import Link from 'next/link'
+import { usePathname, useParams } from 'next/navigation'
 
-  const itemBox = (active: boolean): React.CSSProperties => ({
-    border: "1px solid #e0e0e0",
-    borderRadius: 6,
-    padding: 10,
-    marginTop: 8,
-    background: active ? "rgba(0,0,0,0.05)" : "transparent",
-    fontWeight: active ? 600 : 400,
-  });
+export default function CourseNavigation() {
+  const pathname = usePathname() || ''
+  const { cid } = useParams<{ cid: string }>()
+  const base = `/Courses/${cid}`
 
   const items = [
-    { label: "Home",        href: `/Courses/${cid}/Home` },
-    { label: "Modules",     href: `/Courses/${cid}/Modules` },
-    { label: "Piazza",      href: `/Courses/${cid}/Piazza` },
-    { label: "Zoom",        href: `/Courses/${cid}/Zoom` },
-    { label: "Quizzes",     href: `/Courses/${cid}/Quizzes` },
-    { label: "Assignments", href: `/Courses/${cid}/Assignments` },
-    { label: "Grades",      href: `/Courses/${cid}/Grades` },
-  ];
+    { label: 'Home', href: `${base}/Home` },
+    { label: 'Modules', href: `${base}/Modules` },
+    { label: 'Piazza', href: `${base}/Piazza` },
+    { label: 'Zoom', href: `${base}/Zoom` },
+    { label: 'Assignments', href: `${base}/Assignments` },
+    { label: 'Quizzes', href: `${base}/Quizzes` },
+    { label: 'Grades', href: `${base}/Grades` },
+    { label: 'People', href: `${base}/People/Table` }, ]
+
+  const isActive = (href: string) =>
+    pathname.toLowerCase().startsWith(href.toLowerCase())
 
   return (
-    <nav aria-label="Course navigation" style={{ padding: 16 }}>
-      <div style={outerBox}>
-        <h3 style={{ marginTop: 0, marginBottom: 4 }}>Course</h3>
-        {items.map((it) => {
-          const active = pathname?.startsWith(it.href) ?? false;
-          return (
-            <div key={it.href} style={itemBox(active)}>
-              <Link href={it.href}>{it.label}</Link>
-            </div>
-          );
-        })}
-      </div>
+    <nav
+      aria-label="course navigation"
+      id="wd-courses-nav"
+      className="list-group fs-6 text-start rounded-0"
+    >
+      {items.map(({ label, href }) => (
+        <Link
+          key={href}
+          href={href}
+          prefetch={false}
+          className={`list-group-item border-0 py-2 px-3 ${
+            isActive(href)
+              ? 'bg-black text-white fw-semibold'
+              : 'text-muted'
+          }`}
+        >
+          {label}
+        </Link>
+      ))}
     </nav>
-  );
+  )
 }

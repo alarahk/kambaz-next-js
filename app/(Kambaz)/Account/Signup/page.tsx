@@ -1,8 +1,6 @@
 "use client";
 /**
  * Signup Page
- * Streamlined signup with username + password + verify fields, helper tips,
- * and a single primary action. "Sign up" routes to /Account/Profile per rubric.
  */
 import Link from "next/link";
 

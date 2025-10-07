@@ -1,112 +1,66 @@
-"use client";
-/**
- * Signin Page
- * Centered sign-in card for Kambaz with username + password and a single
- * primary action. "Sign in" routes to /Dashboard per app flow.
+/****
+ * @file Signin Page
+ * Sign-in screen for Kambaz users. 
  */
-import Link from "next/link";
+'use client';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Inter } from 'next/font/google';
 
-export default function SignIn() {
+const inter = Inter({ subsets: ['latin'] });
+
+export default function SigninPage() {
+  const router = useRouter();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  // Handle form submission and navigate to Dashboard
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push('/Dashboard');
+  };
+
   return (
-    <main
-      id="wd-signin-screen"
-      style={{
-        position: "fixed",
-        inset: 0,
-        display: "grid",
-        placeItems: "center",
-        padding: "2rem",
-        boxSizing: "border-box",
-        background: "#fafbfc",
-      }}
-    >
-      <Link
-        href="/Labs"
-        id="wd-labs-header-link"
-        style={{
-          position: "absolute",
-          top: "16px",
-          left: "20px",
-          fontWeight: 700,
-          fontSize: "18px",
-          color: "#000001ff",
-          textDecoration: "none"
-        }}
-      >
-        CS5610 LABS
-      </Link>
-      <h1
-        style={{
-          position: "absolute",
-          top: "16px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          fontSize: "22px",
-          fontWeight: 700,
-          color: "#111827",
-          margin: 0,
-        }}
-      >
-        Kambaz
-      </h1>
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 440,
-          padding: "2rem",
-          border: "1px solid #e5e7eb",
-          borderRadius: 12,
-          background: "#fff",
-          boxShadow: "0 1px 2px rgba(0,0,0,.04)",
-        }}
-      >
-        <h2 style={{ textAlign: "center", margin: 0 }}>Sign in to Kambaz</h2>
-        <p style={{ textAlign: "center", margin: "6px 0 18px", color: "#64748b" }}>
-          Welcome back. Enter your details to continue.
-        </p>
-
-        {/* Username */}
-        <label htmlFor="wd-si-username" style={{ display: "block", fontWeight: 600 }}>Username</label>
-        <input
-          id="wd-si-username"
-          type="text"
-          placeholder="e.g., alara.h"
-          aria-describedby="wd-si-username-tip"
-          title="Your Kambaz username"
-          style={{ width: "100%", padding: "0.65rem", marginTop: 6, border: "1px solid #cbd5e1", borderRadius: 8 }}
-        />
-        <small id="wd-si-username-tip" style={{ display: "block", margin: "6px 0 14px", color: "#64748b" }}>
-          Use the username you created at signup.
-        </small>
-
-        {/* Password */}
-        <label htmlFor="wd-si-password" style={{ display: "block", fontWeight: 600 }}>Password</label>
-        <input
-          id="wd-si-password"
-          type="password"
-          placeholder="Your password"
-          aria-describedby="wd-si-password-tip"
-          title="Minimum 8 characters"
-          style={{ width: "100%", padding: "0.65rem", marginTop: 6, border: "1px solid #cbd5e1", borderRadius: 8 }}
-        />
-        <small id="wd-si-password-tip" style={{ display: "block", margin: "6px 0 14px", color: "#64748b" }}>
-          Minimum 8 characters.
-        </small>
-
-        {/* Primary action + secondary link */}
-        <div style={{ display: "grid", gap: 10, marginTop: 18 }}>
-          <Link href="/Dashboard" id="wd-signin-btn" className="btn btn-primary">Sign in</Link>
-          <div style={{ textAlign: "center", fontSize: 14 }}>
-            Don&apos;t have an account? <Link href="/Account/Signup" id="wd-go-signup">Sign up</Link>
-          </div>
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      <main className={`d-flex justify-content-center align-items-center ${inter.className}`} style={{ minWidth: '320px', maxWidth: '400px', width: '100%' }}>
+        {/* Card container for the sign-in form */}
+        <div className="card p-4 w-100">
+          <h2 className="mb-4 text-center">Sign In</h2>
+          {/* Sign-in form */}
+          <form onSubmit={handleSignIn}>
+            {/* Username input field with helper text */}
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">Username</label>
+              <input
+                type="text"
+                id="username"
+                className="form-control"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <div className="form-text">Enter your Kambaz username.</div>
+            </div>
+            {/* Password input field with helper text */}
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                className="form-control"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <div className="form-text">Your password is kept secure.</div>
+            </div>
+            {/* Sign In button triggers navigation to Dashboard */}
+            <button type="submit" className="btn btn-primary w-100">Sign In</button>
+            
+          </form>
         </div>
-
-        <style jsx>{`
-          .btn { display: inline-block; padding: 10px 14px; border-radius: 8px; text-decoration: none; }
-          .btn-primary { background: #0b62d6; color: #fff; }
-          .btn-primary:hover { filter: brightness(.95); }
-        `}</style>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
