@@ -1,18 +1,12 @@
 'use client';
 /**
- * profile — rubric‑ready, centered card
- * ---------------------------------------------------
- * one‑liner: edit your info in a clean, centered card. minimal, focused, balanced.
- * flow:
- *  • breadcrumb → quick orientation
- *  • card: bold header, stacked inputs, full‑width signout at bottom
+ * Profile Page
  */
 
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function ProfilePage() {
-  // demo state only — no backend wiring needed for rubric
   const [form, setForm] = useState({
     username: 'alice',
     password: '123',
@@ -27,7 +21,6 @@ export default function ProfilePage() {
     (e: React.ChangeEvent<HTMLInputElement>) => setForm({ ...form, [key]: e.target.value });
 
   const submit = (e: React.FormEvent) => {
-    // form is demo‑only, keep UX snappy
     e.preventDefault();
   };
 
