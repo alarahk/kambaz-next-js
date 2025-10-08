@@ -65,6 +65,11 @@ export default function SigninPage() {
               Sign up here.
             </Link>
           </p>
+          <div className="d-flex justify-content-center mt-3">
+            <Link href="/Labs" className="btn btn-outline-secondary px-4">
+              Go to Labs
+            </Link>
+          </div>
         </div>
       </main>
     </div>
