@@ -6,6 +6,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Inter } from 'next/font/google';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -57,8 +58,13 @@ export default function SigninPage() {
             </div>
             {/* Sign In button triggers navigation to Dashboard */}
             <button type="submit" className="btn btn-primary w-100">Sign In</button>
-            
           </form>
+          <p className="text-center mt-3">
+            Don’t have an account?{' '}
+            <Link href="/Account/Signup" className="text-decoration-none text-primary fw-semibold">
+              Sign up here.
+            </Link>
+          </p>
         </div>
       </main>
     </div>
